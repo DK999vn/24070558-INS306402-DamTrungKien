@@ -1,0 +1,31 @@
+# Homework 4 — University Course Registration Database
+
+Môn: INS3064 · Sinh viên: `<Họ tên>` · MSSV: `<MSSV>`
+
+Cơ sở dữ liệu MySQL `university_db` quản lý đăng ký môn học của trường đại học.
+
+## Cách chạy
+
+```bash
+mysql -u root -p < university_db.sql
+```
+
+Hoặc import qua phpMyAdmin (tab SQL). Script có `DROP DATABASE IF EXISTS` nên chạy lại nhiều lần không lỗi.
+
+## Các bảng
+
+| Bảng | Mô tả | Quan hệ |
+|---|---|---|
+| `departments` | Khoa / bộ môn | — |
+| `semesters` | Học kỳ | — |
+| `instructors` | Giảng viên | N–1 `departments` |
+| `students` | Sinh viên | N–1 `departments` (ngành học) |
+| `courses` | Môn học | N–1 `departments`, N–1 `instructors` |
+| `enrollments` | Đăng ký môn học (bảng trung gian) | N–1 `students`, `courses`, `semesters` |
+
+## Điểm chính
+- Engine InnoDB, charset `utf8mb4`
+- PK `AUTO_INCREMENT`, FK có `ON DELETE` / `ON UPDATE`
+- `UNIQUE` (email, mã sinh viên, mã môn), `CHECK` (GPA/điểm 0–4, số tín chỉ, ngày kết thúc > ngày bắt đầu)
+- `UNIQUE (student_id, course_id, semester_id)` chống đăng ký trùng
+- Dữ liệu mẫu: 5 khoa, 6 giảng viên, 8 sinh viên, 8 môn, 5 học kỳ, 17 lượt đăng ký
