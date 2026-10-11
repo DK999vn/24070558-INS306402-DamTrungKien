@@ -1,0 +1,54 @@
+# Homework 5 — University Queries (INS3064)
+
+**Ngày:** 2026-10-11
+
+## Mô tả
+
+Bài tập gồm 10 truy vấn SQL có chú thích, viết trên cơ sở dữ liệu **University Course Registration** (`university_db`) đã tạo ở Homework 4. Mỗi truy vấn có khối comment gồm tiêu đề, mô tả, mô tả kết quả mong đợi, và một khối comment hiển thị bảng kết quả mong đợi.
+
+## Cấu trúc nộp bài
+
+| File | Mô tả |
+|------|-------|
+| `university_queries.sql` | Script SQL gồm 10 truy vấn có chú thích và expected output |
+| `homework05.zip` | File nén chứa `university_queries.sql` để nộp lên LMS |
+| `README.md` | Tài liệu này |
+
+## Danh sách truy vấn
+
+| # | Chủ đề | Nội dung |
+|---|--------|----------|
+| 1 | Basic SELECT | Liệt kê tất cả sinh viên |
+| 2 | WHERE so sánh | Sinh viên có GPA > 3.0 |
+| 3 | WHERE AND/OR | Môn học theo khoa và số tín chỉ |
+| 4 | ORDER BY | Sinh viên sắp xếp theo họ, rồi tên |
+| 5 | LIMIT | Top 3 điểm cao nhất trong enrollments |
+| 6 | LIKE | Môn học có tiêu đề chứa "Introduction" |
+| 7 | COUNT / GROUP BY | Số sinh viên theo khoa |
+| 8 | GROUP BY + HAVING | Khoa có hơn 2 môn học |
+| 9 | JOIN 2 bảng | Môn học kèm tên giảng viên |
+| 10 | JOIN 4 bảng | Đăng ký học: sinh viên, môn, học kỳ, điểm |
+
+## Cách chạy
+
+1. Chạy script Homework 4 trước để tạo database `university_db` và dữ liệu mẫu.
+2. Mở **phpMyAdmin** → chọn tab **SQL**.
+3. Import hoặc dán nội dung `university_queries.sql` rồi nhấn **Go**.
+   (Dòng `USE university_db;` ở đầu file sẽ chọn đúng database.)
+4. Hoặc dùng dòng lệnh:
+
+   ```bash
+   mysql -u root -p < university_queries.sql
+   ```
+
+## Yêu cầu kỹ thuật đã đáp ứng
+
+- Header comment (tên, MSSV, bài tập, ngày) và `USE university_db;`
+- Mỗi truy vấn có comment block đúng định dạng và khối expected output
+- Từ khóa SQL viết hoa, mỗi câu lệnh kết thúc bằng dấu `;`
+- Dùng alias (`AS`) ở nhiều truy vấn (7, 8, 9, 10)
+
+## Video demo
+
+Link YouTube (Unlisted): <dán link vào đây>
+Playlist: INS3064 — Homework — <Your Full Name>
